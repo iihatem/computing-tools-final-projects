@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     return jsonify({
-        "message": "Deployed by Jenkins + Terraform",
+        "message": "Deployed by Jenkins + Terraform — auto-triggered by SCM poll",
         "build": os.getenv("BUILD_NUMBER", "local"),
     })
 

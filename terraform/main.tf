@@ -31,6 +31,9 @@ resource "docker_container" "app" {
   restart  = "unless-stopped"
   must_run = true
 
+  # Surface the build number in the app response (app.py reads $BUILD_NUMBER).
+  env = ["BUILD_NUMBER=${var.image_tag}"]
+
   ports {
     internal = 5000
     external = 8081
